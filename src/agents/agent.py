@@ -18,6 +18,15 @@ from tools.brand_search_tool import (
     search_brand_news,
     search_brand_social_media
 )
+from tools.document_parser import (
+    parse_document,
+    parse_url_content
+)
+from tools.knowledge_manager import (
+    import_text_to_knowledge,
+    import_url_to_knowledge,
+    search_knowledge
+)
 
 # 导入记忆模块
 from storage.memory.memory_saver import get_memory_saver
@@ -74,7 +83,12 @@ def build_agent(ctx=None):
     tools = [
         search_brand_comprehensive,
         search_brand_news,
-        search_brand_social_media
+        search_brand_social_media,
+        parse_document,
+        parse_url_content,
+        import_text_to_knowledge,
+        import_url_to_knowledge,
+        search_knowledge
     ]
     
     # 创建 Agent
