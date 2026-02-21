@@ -1,0 +1,14 @@
+[phases.setup]
+nixPkgs = ["python310", "python310Packages.pip"]
+
+[phases.build]
+cmds = ["pip install --no-cache-dir -r requirements_web.txt"]
+
+[phases.start]
+cmd = "streamlit run web_app.py --server.port=$PORT --server.address=0.0.0.0"
+
+[static]
+# Streamlit 不需要静态文件服务
+
+[build.env]
+PYTHON_VERSION = "3.10"
